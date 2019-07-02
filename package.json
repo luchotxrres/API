@@ -6,7 +6,7 @@
     "scripts": {
         "dev": "PORT=4000 NODE_ENV=dev nodemon index.js",
         "start": "nodemon index.js",
-        "test": "mocha src/test/**/*.js"
+        "test": "mocha src/test/index.js"
     },
     "repository": {
         "type": "git",
