@@ -1,3 +1,5 @@
+require('./../config/env/env.config');
+require('./../config/odm/odm.config');
 var express = require('express'),
     app = express();
 
