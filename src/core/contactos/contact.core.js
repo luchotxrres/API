@@ -1,18 +1,18 @@
 const contactsServer = require('./../../db/server/contactos/contactos.server');
 module.exports = {
-    getAllcontactsCore: () => { 
+    getAllcontactsCore: async () => { 
         return await contactsServer.getAllcontactsServer();
     },
-    getOneContactCore: (id) => { 
+    getOneContactCore: async (id) => { 
         return await contactsServer.getOneContactServer(id);
     },
-    createContactCore: (body) => { 
+    createContactCore: async (body) => { 
         return await contactsServer.createContactServer(body);
     },
-    updateContactCore: (body) => { 
+    updateContactCore: async (body) => { 
         return await contactsServer.updateContactServer(body);
     },
-    deleteContactCore: (id) => { 
+    deleteContactCore: async (id) => { 
         return await contactsServer.deleteContactServer(id);
     }
 }

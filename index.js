@@ -1,2 +1,3 @@
 require('./src/config/env/env.config')
-require('./src/api/index');
+var app = require('./src/api/server');
+module.exports = app;
