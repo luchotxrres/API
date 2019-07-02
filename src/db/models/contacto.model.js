@@ -2,19 +2,11 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const ContactoSchema = new Schema({
-    _id: {
-        type: Number,
-        required: true
-    },
-    name: {
-        type: String,
-        required: true
-    },
+    _id: { type: Number, required: true },
+    name: { type: String, required: true },
     company: String,
-    email: {
-        type: String,
-        required: true
-    },
+    email: { type: String, required: true },
+    image: { type: String, required: true },
     birthdate: Date,
     street: String,
     city: String,
@@ -24,10 +16,8 @@ const ContactoSchema = new Schema({
     work_number: Number,
     home_number: Number,
     mobile_number: Number
-}, {
-    collection: 'contactos'
-});
+}, { collection: 'contactos' });
 
-const ContactModel = mongoose.model('contactos', ContactoSchema);
+const ContactModel = mongoose.model('Contacto', ContactoSchema);
 
 module.exports = ContactModel;
