@@ -13,6 +13,7 @@ module.exports = {
     },
     createContactController: async (req, res) => {
         let body = {};
+        console.log(req);
         let data = await contactCore.createContactCore(body);
         res.status = 200;
         res.send({ status: 'success', message: {} });
