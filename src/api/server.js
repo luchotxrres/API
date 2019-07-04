@@ -10,7 +10,7 @@ var express = require('express'),
 require('./../config/odm/odm.config')
 
 app.set('port', port.APP_PORT || process.env.APP_PORT);
-var initServer = async () => {
+var initServer = async() => {
     await app.use(bodyParser.urlencoded({ extended: true }));
     await app.use(bodyParser.json());
     await routes.initRoutes(app);

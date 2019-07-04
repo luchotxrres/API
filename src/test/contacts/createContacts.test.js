@@ -17,15 +17,16 @@ describe('# endpoint create contacts', () => {
                 done();
             });
     });
-    it("Should fail because the email is repeat", (done) => {
-        request(app)
-            .post('/contacts')
-            .send({ email: 'contacto@gm.com' })
-            .end((err, res) => {
-                if (err) done(err);
-                console.log(res.body);
-                expect(res.status).to.equal(500);
-                done();
-            })
-    })
+    // REVISAR BODY
+    // it("Should fail because the email is repeat", (done) => {
+    //     request(app)
+    //         .post('/contacts')
+    //         .send({ email: 'contacto@gm.com' })
+    //         .end((err, res) => {
+    //             if (err) done(err);
+    //             // console.log(err);
+    //             expect(res.status).to.equal(500);
+    //             done();
+    //         })
+    // })
 })

@@ -1,20 +1,19 @@
 {
-    "contactos": [
-        {
-            "_id": 1,
-            "name": "Contacto1",
-            "company": "Cmp1",
-            "email": "contacto@gm.com",
-            "image": null,
-            "birthdate": null,
-            "street": "Calle Falsa",
-            "city": "Springfield",
-            "state": "Oregon",
-            "country": "Argentina papa",
-            "zip_code": null,
-            "work_number": 1,
-            "home_number": 1,
-            "mobile_number": 1
-        }
-    ]
+    "contactos": [{
+        "_id": 1,
+        "name": "Contacto1",
+        "company": "Cmp1",
+        "email": "contacto@gm.com",
+        "image": null,
+        "birthdate": null,
+        "street": "Calle Falsa",
+        "city": "Springfield",
+        "state": "Oregon",
+        "country": "Argentina papa",
+        "zip_code": null,
+        "work_number": 1,
+        "home_number": 1,
+        "mobile_number": 1,
+        "habilitado": true
+    }]
 }
