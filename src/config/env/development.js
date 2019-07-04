@@ -3,5 +3,5 @@
 module.exports = {
     env: 'development',
     db: 'mongodb://localhost/Todod',
-    port: process.env.PORT || 4000
+    port: process.env.APP_PORT || 4000
 }

@@ -1,20 +1,22 @@
-// let chai = require('chai');
-// let chai_http = require('chai-http');
-// const expect = chai.expect;
-// chai.use(chai_http);
-// const url = 'http://localhost:4000/contactos';
+'use strict';
 
-// describe("Alta de contactos", () => {
-//     it("Da de alta un usuario de manera exitosa", (done) => {
-//         chai.request(url)
-//             .post('/')
-//             .send({ id: 11 })
-//             .end(function (req, res) {
-//                 done();
-//             })
-//     });
-// });
+var app = require('./../../api/server'),
+    chai = require('chai'),
+    request = require('supertest'),
+    expect = chai.expect;
 
 describe('# endpoint create contacts', () => {
-    it("Should create a contact", (done) => done())
+    it("Should create a contact", (done) => {
+        console.log(app);
+        request(app)
+            .post('/contacts')
+            .send({ name: 'Nahuel' })
+            .end((err, res) => {
+                if (err) done(err)
+                expect(res.status).equal(200);
+                expect(res.body.name).to.equal('integration test');
+                done();
+            })
+
+    })
 })
