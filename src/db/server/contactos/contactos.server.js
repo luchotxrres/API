@@ -7,7 +7,12 @@ module.exports = {
     getOneContactServer: async (id) => {
         return await contactoModel.findOne({ id: id });
     },
-    createContactServer: (body) => { },
+    getOneContactByEmailServer: async (email) => {
+        return await contactoModel.findOne({ email: email });
+    },
+    createContactServer: async (body) => {
+        return await contactoModel.create(body);
+    },
     updateContactServer: (body) => { },
     deleteContactServer: (id) => { }
 }
