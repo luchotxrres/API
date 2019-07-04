@@ -15,7 +15,8 @@ const ContactoSchema = new Schema({
     zip_code: Number,
     work_number: Number,
     home_number: Number,
-    mobile_number: Number
+    mobile_number: Number,
+    habilitado: { type: Boolean, required: true }
 }, { collection: 'contactos' });
 
 const ContactModel = mongoose.model('Contacto', ContactoSchema);
