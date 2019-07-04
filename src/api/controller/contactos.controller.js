@@ -2,18 +2,29 @@ const contactCore = require('./../../core/contactos/contact.core');
 
 module.exports = {
     getAllContactsController: async (req, res) => {
-        let data = await contactCore.getAllcontactsCore();
-        res.status = 200;
-        res.send({ status: 'success', message: [] });
+        try {
+            let data = await contactCore.getAllcontactsCore();
+            res.status = 200;
+            res.send({ status: 'success', data: data });
+        } catch (err) {
+            res.status = 500;
+            res.send({ status: 'fail', data: null });
+        }
     },
     getOneContactController: async (req, res) => {
-        let data = await contactCore.getOneContactCore(req.params.id);
-        res.status = 200;
-        res.send({ status: 'success', message: [] });
+        try {
+            let data = await contactCore.getOneContactCore(req.params.id);
+            res.status = 200;
+            res.send({ status: 'success', data: data });
+        } catch (err) {
+            res.status = 500;
+            res.send({ status: 'fail', data: null });
+        }
     },
     createContactController: async (req, res) => {
-        let body = {};
-        console.log(req.body);
+        let body = {
+            
+        };
         let data = await contactCore.createContactCore(body);
         res.status = 200;
         res.send({ status: 'success', message: {} });
