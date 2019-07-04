@@ -9,7 +9,8 @@ describe('Inicio', () => {
         await mongo_unit.dropDb(`mongodb://${process.env.DB_HOST}/${process.env.DB_NAME}`);
         return await mongo_unit.initDb(`mongodb://${process.env.DB_HOST}/${process.env.DB_NAME}`, data);
     })
-    describe('# Get all contacts', () => {
-        it("Should get all contacts", (done) => done())
-    })
+    require('./contacts/createContacts.test');
+    require('./contacts/deleteContacts.test');
+    require('./contacts/getContacts.test');
+    require('./contacts/updateContacts.test');
 });
