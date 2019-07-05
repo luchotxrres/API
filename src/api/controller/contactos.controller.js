@@ -1,7 +1,7 @@
 const contactCore = require('./../../core/contactos/contact.core');
 
 module.exports = {
-    getAllContactsController: async (req, res) => {
+    getAllContactsController: async(req, res) => {
         try {
             let data = await contactCore.getAllcontactsCore();
             res.status = 200;
@@ -11,7 +11,7 @@ module.exports = {
             res.send({ status: 'fail', data: null });
         }
     },
-    getOneContactController: async (req, res) => {
+    getOneContactController: async(req, res) => {
         try {
             let data = await contactCore.getOneContactCore(req.params.id);
             res.status = 200;
@@ -21,7 +21,7 @@ module.exports = {
             res.send({ status: 'fail', data: null });
         }
     },
-    createContactController: async (req, res) => {
+    createContactController: async(req, res) => {
         try {
             let body = req.body;
             body['habilitado'] = true;
@@ -36,15 +36,20 @@ module.exports = {
             res.send({ message: err.message });
         }
     },
-    updateContactController: async (req, res) => {
+    updateContactController: async(req, res) => {
         let body = {};
         let data = await contactCore.updateContactCore(body);
         res.status = 200;
         res.send({ status: 'success', message: {} });
     },
-    deleteContactController: async (req, res) => {
-        let data = await contactCore.deleteContactCore(req.params.id);
-        res.status = 200;
-        res.send({ status: 'success', message: { data } });
+    deleteContactController: async(req, res) => {
+        try {
+            let data = await contactCore.deleteContactCore(req.params.id);
+            res.status = 200;
+            res.send({ status: 'success', message: { data } });
+        } catch (err) {
+            res.statusCode = 500;
+            res.send({ status: res.statusCode, message: err.message });
+        }
     }
 }
