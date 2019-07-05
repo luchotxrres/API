@@ -1,20 +1,24 @@
 const contactoModel = require('./../../models/contacto.model');
 
 module.exports = {
-    getAllcontactsServer: async() => {
+    getAllcontactsServer: async () => {
         return await contactoModel.find({});
     },
-    getOneContactServer: async(id) => {
-        return await contactoModel.findOne({ id: id });
+    getOneContactServer: async (id) => {
+        return await contactoModel.findOne({ _id: id });
     },
-    getOneContactByEmailServer: async(email) => {
+    getOneContactByEmailServer: async (email) => {
         return await contactoModel.findOne({ email: email });
     },
-    createContactServer: async(body) => {
-        return await contactoModel.create(body);
+    getMaxContactServer: async () => {
+        return await contactoModel.find({}, { _id: 1 }).sort({ _id: -1 });
     },
-    updateContactServer: (body) => {},
-    deleteContactServer: async(id) => {
+    createContactServer: async (body) => {
+        var resp = await contactoModel.create(body);
+        return await contactoModel.find({ email: body.email });
+    },
+    updateContactServer: (body) => { },
+    deleteContactServer: async (id) => {
         return await contactoModel.updateOne({ _id: id }, { habilitado: false });
     }
 }
