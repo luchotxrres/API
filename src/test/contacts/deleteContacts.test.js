@@ -12,7 +12,6 @@ describe('# endpoint delete contact', () => {
             .send({ habilitado: false })
             .end((err, res) => {
                 if (err) done(err)
-                console.log(err);
                 expect(res.status).equal(200);
                 done();
             })

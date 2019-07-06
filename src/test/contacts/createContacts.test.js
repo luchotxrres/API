@@ -42,8 +42,21 @@ describe('# endpoint create contacts', () => {
                 done();
             });
     });
+
     it("Should fail because the body is bad", (done) => {
         delete body.company;
+        request(app)
+            .post('/contacts')
+            .send(body)
+            .end((err, res) => {
+                if (err) done(err);
+                expect(res.status).to.equal(400);
+                done();
+            })
+    });
+
+    it("Should fail because the body have params not accepted", (done) => {
+        body.paramnotaccepted = 'asd';
         request(app)
             .post('/contacts')
             .send(body)

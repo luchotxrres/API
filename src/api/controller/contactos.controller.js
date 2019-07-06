@@ -31,7 +31,6 @@ module.exports = {
         } catch (err) {
             // var mensaje = err[Object.keys(err)[0]];
             // mensaje = mensaje[Object.keys(mensaje)[0]];
-            console.log(err);
             res.statusCode = 500;
             res.send({ message: err.message });
         }
