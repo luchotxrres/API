@@ -1,4 +1,11 @@
 const contactsServer = require('./../../db/server/contactos/contactos.server');
+
+function ContactsCore() { }
+
+var contactsCore = {
+    constructor: ContactsCore
+}
+
 module.exports = {
     getAllcontactsCore: async () => {
         return await contactsServer.getAllcontactsServer();
@@ -14,8 +21,6 @@ module.exports = {
     },
     updateContactCore: async (body) => {
         let contact = await contactsServer.getOneContactByIDServer(body.id);
-        console.log(contact);
-        console.log(body);
         if (contact == null) throw new Error(`No hay ningun contacto asociado al email ${body.email}`)
         if (contact.email != body.email) throw new Error(`El id del contacto ${body.id} no tiene relacion con el email ${contact.email}`)
         return await contactsServer.updateContactServer(body);
